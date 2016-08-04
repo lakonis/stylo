@@ -1,34 +1,36 @@
 'use strict';
 /* eslint-disable no-console, no-invalid-this */
 
+var fs = require('fs');
+var path = require('path');
 var gulp = require('gulp');
-var browserify = require('browserify');
+var gulpFile = require('gulp-file');
 var uglify = require('gulp-uglify');
-var through2 = require('through2');
 var eslint = require('gulp-eslint');
 var tape = require('gulp-tape');
 var tapSpec = require('tap-spec');
 var bundleStyles = require('substance/util/bundleStyles');
-var examples = require('./examples/config').examples;
-var fs = require('fs');
-var path = require('path');
-var gulpFile = require('gulp-file');
 
+var buildDir = path.join(__dirname, 'build');
 var distDir = path.join(__dirname, 'dist');
+var examples = require('./examples/config').examples;
 
-gulp.task('assets', function () {
-  examples.forEach(function(exampleFolder) {
+function assets() {
+  // copy example index.html files
+  var subtasks = examples.map(function(exampleFolder) {
     gulp.src(path.join('examples', exampleFolder, 'index.html'))
       .pipe(gulp.dest(path.join(distDir, exampleFolder)));
   });
+  // copy example assets
   gulp.src('examples/data/*')
     .pipe(gulp.dest(path.join(distDir, 'data')));
+  // copy font-awesome fonts
   gulp.src('node_modules/font-awesome/fonts/*')
     .pipe(gulp.dest(path.join(distDir, 'fonts')));
-});
+}
 
-gulp.task('sass', function(done) {
-  Promise.all(examples.map(function(exampleFolder) {
+function sass() {
+  var subtasks = examples.map(function(exampleFolder) {
     return bundleStyles({
       rootDir: __dirname,
       configuratorPath: require.resolve('./packages/common/BaseConfigurator'),
@@ -43,10 +45,11 @@ gulp.task('sass', function(done) {
     }).catch(function(err) {
       console.error(err);
     });
-  })).then(function() {
-    done();
   });
-});
+  return Promise.all(subtasks);
+}
+
+function bundle()
 
 gulp.task('browserify', function() {
   examples.forEach(function(exampleFolder) {
@@ -67,6 +70,10 @@ gulp.task('browserify', function() {
       .pipe(gulp.dest('./dist/'+exampleFolder));
   });
 });
+
+// copies assets into dist folder (e.g., index.html, fonts)
+gulp.task('assets', assets);
+gulp.task('sass', sass);
 
 gulp.task('lint', function() {
   return gulp.src([
