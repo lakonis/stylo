@@ -1,15 +1,6 @@
-# Logs
 logs
 *.log
-
-# Bundles
 dist
-
-# Compiled binary addons (http://nodejs.org/api/addons.html)
-build/Release
-
-# Dependencies
+build
 node_modules
-
-# Users Environment Variables
 .lock-wscript
