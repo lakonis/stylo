@@ -1,7 +1,7 @@
 'use strict';
 
-var Component = require('substance/ui/Component');
-var renderNodeComponent = require('../../../util/renderNodeComponent');
+import { Component } from 'substance'
+import renderNodeComponent from '../../../util/renderNodeComponent'
 
 function FigureComponent() {
   Component.apply(this, arguments);
@@ -12,7 +12,6 @@ FigureComponent.Prototype = function() {
   this.render = function($$) {
     var node = this.props.node;
     var doc = node.getDocument();
-
     var el = $$('div')
       .addClass('sc-figure')
       .attr('data-id', this.props.node.id);
@@ -54,4 +53,4 @@ FigureComponent.Prototype = function() {
 
 Component.extend(FigureComponent);
 
-module.exports = FigureComponent;
+export default FigureComponent;

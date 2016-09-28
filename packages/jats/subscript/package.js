@@ -1,13 +1,12 @@
 'use strict';
 
-var Subscript = require('./Subscript');
-var SubscriptConverter = require('./SubscriptConverter');
+import Subscript from './Subscript'
+import SubscriptConverter from './SubscriptConverter'
 
-module.exports = {
+export default {
   name: 'subscript',
   configure: function(config) {
     config.addNode(Subscript);
     config.addConverter('jats', SubscriptConverter);
-    config.addStyle(__dirname, '_subscript.scss');
   }
 };

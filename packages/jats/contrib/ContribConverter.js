@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports = {
+export default {
 
   type: 'contrib',
   tagName: 'contrib',
@@ -10,7 +10,6 @@ module.exports = {
   */
   import: function(el, node, converter) { // eslint-disable-line
     node.xmlContent = el.innerHTML;
-    node.tagName = el.tagName;
   },
 
   export: function(node, el, converter) { // eslint-disable-line

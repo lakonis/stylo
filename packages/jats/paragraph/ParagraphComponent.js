@@ -1,19 +1,13 @@
 'use strict';
 
-var TextBlockComponent = require('substance/ui/TextBlockComponent');
+import { TextBlockComponent } from 'substance'
 
-function ParagraphComponent() {
-  ParagraphComponent.super.apply(this, arguments);
+class ParagraphComponent extends TextBlockComponent {
+
+  getClassNames() {
+    return 'sc-paragraph'
+  }
+
 }
 
-ParagraphComponent.Prototype = function() {
-
-  this.getClassNames = function() {
-    return 'sc-paragraph';
-  };
-
-};
-
-TextBlockComponent.extend(ParagraphComponent);
-
-module.exports = ParagraphComponent;
+export default ParagraphComponent

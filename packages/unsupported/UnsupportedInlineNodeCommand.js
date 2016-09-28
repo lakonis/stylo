@@ -1,13 +1,7 @@
-'use strict';
+import { EditInlineNodeCommand } from 'substance'
 
-var InlineNodeCommand = require('substance/ui/InlineNodeCommand');
+class UnsupportedInlineNodeCommand extends EditInlineNodeCommand {}
 
-function UnsupportedInlineNodeCommand() {
-  UnsupportedInlineNodeCommand.super.apply(this, arguments);
-}
+UnsupportedInlineNodeCommand.type = 'unsupported-inline'
 
-InlineNodeCommand.extend(UnsupportedInlineNodeCommand);
-
-UnsupportedInlineNodeCommand.type = 'unsupported-inline';
-
-module.exports = UnsupportedInlineNodeCommand;
+export default UnsupportedInlineNodeCommand

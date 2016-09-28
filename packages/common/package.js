@@ -1,9 +1,9 @@
-'use strict';
+import { ToolDropdown } from 'substance'
 
-module.exports = {
+export default {
   name: 'common',
   configure: function(config) {
-    config.addStyle(__dirname, '_isolated-node.scss');
-    config.addStyle(__dirname, '_edit-xml.scss');
+    config.addComponent('tool-target-insert', ToolDropdown)
+    config.addLabel('insert', 'Insert');
   }
-};
+}

@@ -1,15 +1,12 @@
-'use strict';
+import TexturePackage from '../../packages/texture/package'
+import ExampleXMLStore from '../ExampleXMLStore'
 
-var TexturePackage = require('../../packages/texture/package');
-var ExampleXMLStore = require('../ExampleXMLStore');
-
-module.exports = {
+export default {
   name: 'publisher-example',
   configure: function(config) {
     config.import(TexturePackage);
-
     // Define XML Store
     config.setXMLStore(ExampleXMLStore);
-    config.addStyle(__dirname, 'app.scss');
   }
-};
+}
+

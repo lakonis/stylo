@@ -82,8 +82,6 @@ module.exports = {
 
     // Define XML Store
     config.setXMLStore(MyXMLStore);
-    // Add your custom app styles
-    config.addStyle(__dirname, 'my-texture.scss');
   }
 };
 ```
@@ -135,7 +133,6 @@ See [CONTRIBUTING.md](CONTRIBUTING.md).
 - Front matter editing for title + abstract (JATS `<front>`)
 - Editing of authors (create, update and delete contrib elements)
 - Create and edit xref elements
-
 
 ### Alpha 3
 

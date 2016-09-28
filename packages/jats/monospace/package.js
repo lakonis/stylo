@@ -1,13 +1,12 @@
 'use strict';
 
-var Monospace = require('./Monospace');
-var MonospaceConverter = require('./MonospaceConverter');
+import Monospace from './Monospace'
+import MonospaceConverter from './MonospaceConverter'
 
-module.exports = {
+export default {
   name: 'monospace',
   configure: function(config) {
     config.addNode(Monospace);
     config.addConverter('jats', MonospaceConverter);
-    config.addStyle(__dirname, '_monospace.scss');
   }
 };

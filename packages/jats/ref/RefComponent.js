@@ -1,25 +1,17 @@
-'use strict';
+import { Component } from 'substance'
+import refToHTML from './refToHTML'
 
-var Component = require('substance/ui/Component');
-var refToHTML = require('./refToHTML');
-
-
-function RefComponent() {
-  RefComponent.super.apply(this, arguments);
+class RefComponent extends Component {
+  render($$) {
+    var el = $$('div').addClass('sc-ref')
+    el.attr('data-id', this.props.node.id)
+    el.html(refToHTML(this.props.node))
+    return el
+  }
 }
-
-RefComponent.Prototype = function() {
-  this.render = function($$) {
-    var el = $$('div').addClass('sc-ref');
-    el.html(refToHTML(this.props.node.xmlContent));
-    return el;
-  };
-};
-
-Component.extend(RefComponent);
 
 // Isolated Nodes config
 RefComponent.fullWidth = true;
 RefComponent.noStyle = true;
 
-module.exports = RefComponent;
+export default RefComponent;

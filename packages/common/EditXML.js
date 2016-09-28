@@ -1,9 +1,6 @@
-'use strict';
-
-var Component = require('substance/ui/Component');
-var XMLAttributeEditor = require('./XMLAttributeEditor');
-var XMLEditor = require('./XMLEditor');
-var Button = require('substance/ui/Button');
+import { Button, Component } from 'substance'
+import XMLAttributeEditor from './XMLAttributeEditor'
+import XMLEditor from './XMLEditor'
 
 function EditXML() {
   EditXML.super.apply(this, arguments);
@@ -13,7 +10,7 @@ EditXML.Prototype = function() {
   this.render = function($$) {
     var node = this.props.node;
     var el = $$('div').addClass('sc-edit-xml');
-    var tagName = node.tagName;
+    var tagName = node.tagName || node.constructor.type;
 
     el.append(
       $$('div').addClass('se-tag sm-open-tag-start').append('<'+tagName)
@@ -42,8 +39,7 @@ EditXML.Prototype = function() {
     el.append(
       $$('div').addClass('se-actions').append(
         $$(Button).append('Save').on('click', this._save),
-        $$(Button).addClass('se-cancel').append('Cancel').on('click', this._cancel),
-        $$(Button).addClass('se-delete').append('Delete').on('click', this._delete)
+        $$(Button).addClass('se-cancel').append('Cancel').on('click', this._cancel)
       )
     );
     return el;
@@ -68,7 +64,6 @@ EditXML.Prototype = function() {
     var newXML = this.refs.xmlEditor.getXML();
 
     // TODO: add validity checks. E.g. try to parse XML string
-
     documentSession.transaction(function(tx) {
       tx.set([node.id, 'xmlContent'], newXML);
       tx.set([node.id, 'attributes'], newAttributes);
@@ -79,4 +74,4 @@ EditXML.Prototype = function() {
 
 Component.extend(EditXML);
 
-module.exports = EditXML;
+export default EditXML;

@@ -1,13 +1,11 @@
-'use strict';
+import { TOCProvider } from 'substance'
 
-var TOCProvider = require('substance/ui/TOCProvider');
-
-function AuthorTOCProvider(documentSession) {
-  TOCProvider.call(this, documentSession.getDocument(), {
-    containerId: 'bodyFlat'
-  });
+class AuthorTOCProvider extends TOCProvider {
+  constructor(documentSession) {
+    super(documentSession.getDocument(), {
+      containerId: 'bodyFlat'
+    })
+  }
 }
 
-TOCProvider.extend(AuthorTOCProvider);
-
-module.exports = AuthorTOCProvider;
+export default AuthorTOCProvider

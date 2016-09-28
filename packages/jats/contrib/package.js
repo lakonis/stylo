@@ -1,15 +1,12 @@
-'use strict';
+import Contrib from './Contrib'
+import ContribComponent from './ContribComponent'
+import ContribConverter from './ContribConverter'
 
-var Contrib = require('./Contrib');
-var ContribComponent = require('./ContribComponent');
-var ContribConverter = require('./ContribConverter');
-
-module.exports = {
+export default {
   name: 'contrib',
   configure: function(config) {
     config.addNode(Contrib);
     config.addComponent(Contrib.type, ContribComponent);
     config.addConverter('jats', ContribConverter);
-    config.addStyle(__dirname, '_contrib.scss');
   }
-};
+}

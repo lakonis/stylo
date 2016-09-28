@@ -1,15 +1,14 @@
 'use strict';
 
-var Title = require('./Title');
-var TitleConverter = require('./TitleConverter');
-var TitleComponent = require('./TitleComponent');
+import Title from './Title'
+import TitleConverter from './TitleConverter'
+import TitleComponent from './TitleComponent'
 
-module.exports = {
+export default {
   name: 'title',
   configure: function(config) {
     config.addNode(Title);
     config.addConverter('jats', TitleConverter);
     config.addComponent(Title.type, TitleComponent);
-    config.addStyle(__dirname, '_title.scss');
   }
 };

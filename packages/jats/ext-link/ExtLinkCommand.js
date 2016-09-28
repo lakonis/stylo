@@ -1,21 +1,16 @@
 'use strict';
 
-var LinkCommand = require('substance/packages/link/LinkCommand');
+import { LinkCommand } from 'substance'
 
-function ExtLinkCommand() {
-  ExtLinkCommand.super.apply(this, arguments);
-}
+class ExtLinkCommand extends LinkCommand {
 
-ExtLinkCommand.Prototype = function() {
-  this.getAnnotationData = function() {
+  getAnnotationData() {
     return {
       attributes: {
         'xlink:href': ''
       }
-    };
-  };
-};
+    }
+  }
+}
 
-LinkCommand.extend(ExtLinkCommand);
-
-module.exports = ExtLinkCommand;
+export default ExtLinkCommand

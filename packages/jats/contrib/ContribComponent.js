@@ -1,9 +1,9 @@
 'use strict';
 
-var Component = require('substance/ui/Component');
-var Modal = require('substance/ui/Modal');
-var EditXML = require('../../common/EditXML');
-var contribToHTML = require('./contribToHTML');
+import { Component } from 'substance'
+import EditXML from '../../common/EditXML'
+import EditContrib from './EditContrib'
+import { getAdapter } from './contribUtils'
 
 function ContribComponent() {
   ContribComponent.super.apply(this, arguments);
@@ -19,21 +19,30 @@ function ContribComponent() {
 ContribComponent.Prototype = function() {
 
   this.render = function($$) {
-    var node = this.props.node;
+    var Modal = this.getComponent('modal');
+    var contrib = getAdapter(this.props.node);
     var el = $$('div').addClass('sc-contrib')
       .append(
-        $$('div').addClass('se-name').html(contribToHTML(node))
+        $$('div').addClass('se-name')
+          .append(contrib.fullName)
           .on('click', this._toggleEditor)
       );
 
     if (this.state.editXML) {
+      // Conforms to strict markup enforced by texture
+      // for visual editing
+      var EditorClass;
+      if (contrib.strict) {
+        EditorClass = EditContrib;
+      } else {
+        EditorClass = EditXML;
+      }
+
       el.append(
         $$(Modal, {
           width: 'medium'
         }).append(
-          $$(EditXML, {
-            node: node
-          })
+          $$(EditorClass, contrib)
         )
       );
     }
@@ -56,4 +65,4 @@ ContribComponent.Prototype = function() {
 
 Component.extend(ContribComponent);
 
-module.exports = ContribComponent;
+export default ContribComponent;

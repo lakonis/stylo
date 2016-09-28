@@ -5,28 +5,20 @@
   <front>
     <article-meta>
       <title-group>
-        <article-title>Kitchen sink <italic>example</italic> for authors</article-title>
+        <article-title>Turn Word documents into structured <italic>JATS</italic> with Texture</article-title>
       </title-group>
       <contrib-group>
-        <contrib contrib-type="author">
-          <name>
-            <surname>Forster</surname>
-            <given-names>Anne Williams</given-names>
-          </name>
-          <role>research physiotherapist</role>
-          <xref ref-type="aff" rid="StLukes"/>
-          <xref ref-type="aff" rid="RoyalInf"/>
+        <contrib contrib-type="author" generator="texture">
+          <string-name>Michael Aufreiter</string-name>
+          <xref ref-type="aff" rid="Substance"/>
         </contrib>
-        <contrib contrib-type="author">
-          <name>
-            <surname>Young</surname>
-            <given-names>John G.</given-names>
-          </name>
-          <role>consultant physician</role>
-          <xref ref-type="aff" rid="RoyalInf"/>
+        <contrib contrib-type="author" generator="texture">
+          <string-name>Oliver Buchtala</string-name>
+          <xref ref-type="aff" rid="Substance"/>
         </contrib>
-        <aff id="StLukes">Department of Health Care for the Elderly, St Luke&#x2019;s Hospital, Bradford BD5 0NA</aff>
-        <aff id="RoyalInf">Academic Section of Geriatric Medicine, Royal Infirmary, Glasgow G4 0SF</aff>
+        <aff id="Substance" generator="texture">Substance Software GmbH, Linz, Austria</aff>
+        <aff id="Erudit" generator="texture">Consortium Erudit, Montreal, Canada</aff>
+        <aff id="Coko" generator="texture">Collaborative Knowledge Foundation, San Francisco, US</aff>
       </contrib-group>
       <!-- only one abstract element is considered in Author mode -->
       <abstract>
@@ -36,59 +28,27 @@
   </front>
   <body>
     <sec id="s1">
-      <title>First Section</title>
-      <p id="p1">This is a basic <bold>JATS-compatible</bold> article, using a reduced set of tags. It supports citing references (<xref ref-type="bibr" rid="bib1 bib2">[1,2]</xref>) and figures.</p>
+      <title>Introduction</title>
+      <p id="p1">Texture is a tool for publishers to creating structured JATS documents based on <bold>Word</bold> or InDesign submissions.</p>
+      <p id="p1">The original document is imported with annotations preserved. Then the user starts tagging semantic entities in the document, such as marking up the reference list, the authors, affiliations etc. Saving the document produces valid JATS 1.1 XML (<xref ref-type="bibr" rid="bib1">[1]</xref>).</p>
+      <p>This is an <unsupported-el foo="bar">Unsupported element</unsupported-el>.</p>
     </sec>
     <sec id="s2">
-      <title>Second Section</title>
-      <p id="p2">This is the second paragraph</p>
+      <title>Create a bibliography</title>
+      <p>Below is a list of unstructured references. Use the <bold>tag tool</bold> to turn them into bibliographic entries. After tagging you can cite them from within the text.</p>
+      <p>Albert I, Mavrich TN, Tomsho LP, Qi J, Zanton SJ, Schuster SC, et al. 2007. Translational and rotational settings of H2A.Z nucleosomes across the Saccharomyces cerevisiae genome. Nature 446:572–6.</p>
+      <p>Altman-Price N, Mevarech M. 2009. Genetic evidence for the importance of protein acetylation and protein deacetylation in the halophilic archaeon Haloferax volcanii. J Bacteriol 191:1610–7.</p>
     </sec>
   </body>
   <back>
     <!-- only the first ref-list element is considered in Author mode -->
     <ref-list>
       <title>References</title>
-      <ref id="bib1">
-        <element-citation publication-type="journal">
-          <person-group person-group-type="author">
-            <name>
-              <surname>Allison</surname>
-              <given-names>JD</given-names>
-            </name>
-            <name>
-              <surname>Hare</surname>
-              <given-names>JD</given-names>
-            </name>
-          </person-group>
-          <year>2009</year>
-          <article-title>Learned and na&#xEF;ve natural enemy responses and the interpretation of volatile organic compounds as cues or signals</article-title>
-          <source>New Phytol</source>
-          <volume>184</volume>
-          <fpage>768</fpage>
-          <lpage>782</lpage>
-          <ext-link ext-link-type="uri" href="http://dx.doi.org/10.1111/j.1469-8137.2009.03046.x">10.1111/j.1469-8137.2009.03046.x</ext-link>
-        </element-citation>
+      <ref id="bib1" generator="texture">
+        <mixed-citation publication-type="journal">Bailey KA, Pereira SL, Widom J, Reeve JN. 2000. Archaeal histone selection of nucleosome positioning sequences and the procaryotic origin of histone-dependent genome evolution. J Mol Biol 303:25–34.</mixed-citation>
       </ref>
-      <ref id="bib2">
-        <element-citation publication-type="journal">
-          <person-group person-group-type="author">
-            <name>
-              <surname>Allmann</surname>
-              <given-names>S</given-names>
-            </name>
-            <name>
-              <surname>Baldwin</surname>
-              <given-names>IT</given-names>
-            </name>
-          </person-group>
-          <year>2010</year>
-          <article-title>Insects betray themselves in nature to predators by rapid isomerization of green leaf volatiles</article-title>
-          <source>Science</source>
-          <volume>329</volume>
-          <fpage>1075</fpage>
-          <lpage>1078</lpage>
-          <ext-link ext-link-type="uri" href="http://dx.doi.org/10.1126/science.1191634">10.1126/science.1191634</ext-link>
-        </element-citation>
+      <ref id="bib2" generator="texture">
+        <mixed-citation publication-type="journal">Altschul SF, Gish W, Miller W, Myers EW, Lipman DJ. 1990. Basic local alignment search tool. J Mol Biol 215:403–10.</mixed-citation>
       </ref>
     </ref-list>
   </back>

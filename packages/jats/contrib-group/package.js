@@ -1,15 +1,14 @@
 'use strict';
 
-var ContribGroup = require('./ContribGroup');
-var ContribGroupConverter = require('./ContribGroupConverter');
-var ContribGroupComponent = require('./ContribGroupComponent');
+import ContribGroup from './ContribGroup'
+import ContribGroupConverter from './ContribGroupConverter'
+import ContribGroupComponent from './ContribGroupComponent'
 
-module.exports = {
+export default {
   name: 'contrib-group',
   configure: function(config) {
     config.addNode(ContribGroup);
     config.addConverter('jats', ContribGroupConverter);
     config.addComponent(ContribGroup.type, ContribGroupComponent);
-    config.addStyle(__dirname, '_contrib-group.scss');
   }
 };
