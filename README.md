@@ -9,20 +9,13 @@ Texture is a collection of components for realizing content production systems. 
 Clone the repository.
 
 ```bash
-$ git clone https://github.com/substance/texture.git
+$ git clone https://github.com/EcrituresNumeriques/stylo.git
 ```
 
 Navigate to the source directory.
 
 ```bash
-$ cd texture
-```
-
-At the moment, the default branch provides the develop version.
-To get the latest stable version switch to the `master` branch:
-
-```bash
-$ git checkout master
+$ cd stylo
 ```
 
 Install via npm
@@ -39,13 +32,6 @@ $ npm run start
 
 And navigate to [http://localhost:5001](http://localhost:5001)
 
-To run the tests in the browser navigate to `http://localhost:5001/test`
-
-To run the test suite headless:
-
-```
-$ npm test
-```
 
 ## Usage
 
