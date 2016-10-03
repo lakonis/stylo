@@ -15,12 +15,12 @@ export default {
       data: {type: Paragraph.type}
     })
     config.addLabel(Paragraph.type, {
-      en: 'Paragraph',
-      de: 'Paragraph'
+      en: 'Paragraphe',
+      de: 'Paragraphe'
     })
     config.addLabel('paragraph.content', {
-      en: 'Paragraph',
-      de: 'Paragraph'
+      en: 'Paragraphe',
+      de: 'Paragraphe'
     })
   }
 }
