@@ -30,7 +30,7 @@ Start the dev server
 $ npm run start
 ```
 
-And navigate to [http://localhost:5001](http://localhost:5001)
+And navigate to [http://localhost:5555](http://localhost:5555)
 
 
 ## Usage
